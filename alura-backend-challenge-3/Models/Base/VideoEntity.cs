@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace alura_backend_challenge_3.Models.Base
 {
     [Table("videos")]
-    public class VideoEntity
+    public class VideoEntity : BaseEntity
     {
         [Column("titulo")]
         [Required]
