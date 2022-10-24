@@ -1,9 +1,7 @@
 ﻿using alura_backend_challenge_3.Data.ValueObjects;
 using alura_backend_challenge_3.Repositories;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace alura_backend_challenge_3.Controllers
 {
@@ -24,9 +22,9 @@ namespace alura_backend_challenge_3.Controllers
         {
             if (videoVO == null) return BadRequest();
 
-            var product = await _repository.Create(videoVO);
+            var videoCreated = await _repository.Create(videoVO);
 
-            return Ok(product);
+            return new ObjectResult(videoCreated) { StatusCode = StatusCodes.Status201Created };
         }
 
         [HttpGet]
@@ -34,7 +32,7 @@ namespace alura_backend_challenge_3.Controllers
         {
             var videos = await _repository.FindAll();
 
-            return Ok(videos);
+            return new ObjectResult(videos) { StatusCode = StatusCodes.Status200OK };
         }
 
         [HttpGet("{id}")]
@@ -43,7 +41,7 @@ namespace alura_backend_challenge_3.Controllers
             var video = await _repository.FindById(id);
             if (video == null) return NotFound();
 
-            return Ok(video);
+            return new ObjectResult(video) { StatusCode = StatusCodes.Status200OK };
         }
 
         [HttpPut]
@@ -53,7 +51,7 @@ namespace alura_backend_challenge_3.Controllers
 
             var videoRegistered = await _repository.Update(videoVO);
 
-            return Ok(videoRegistered);
+            return new ObjectResult(videoRegistered) { StatusCode = StatusCodes.Status200OK };
         }
 
         [HttpDelete("{id}")]
@@ -61,7 +59,7 @@ namespace alura_backend_challenge_3.Controllers
         {
             var status = await _repository.Delete(id);
             if (!status) return BadRequest();
-            return Ok(new { status });
+            return new ObjectResult(new { status }) { StatusCode = StatusCodes.Status200OK };
         }
 
     }
