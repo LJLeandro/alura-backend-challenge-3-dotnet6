@@ -17,6 +17,14 @@ namespace alura_backend_challenge_3.Controllers
                 throw new ArgumentNullException(nameof(repository));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> FindAllVideos()
+        {
+            var videos = await _repository.FindAll();
+
+            return Ok(videos);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(VideoVO videoVO)
         {
@@ -26,5 +34,7 @@ namespace alura_backend_challenge_3.Controllers
 
             return Ok(product);
         }
+
+
     }
 }
