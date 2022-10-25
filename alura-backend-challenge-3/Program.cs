@@ -25,7 +25,7 @@ IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IVideoRepository, VideoRepository>();
+builder.Services.AddScoped<IDataRepository<VideoVO>, VideoRepository>();
 
 var app = builder.Build();
 

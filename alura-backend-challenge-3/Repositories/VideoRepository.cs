@@ -82,5 +82,10 @@ namespace alura_backend_challenge_3.Repositories
                 return false;
             }
         }
+
+        public async Task<IEnumerable<VideoVO>> FindTheMostViewedVideos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
