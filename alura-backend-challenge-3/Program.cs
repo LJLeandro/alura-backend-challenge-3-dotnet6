@@ -1,4 +1,5 @@
 using alura_backend_challenge_3.Config;
+using alura_backend_challenge_3.Data.ValueObjects;
 using alura_backend_challenge_3.Models.Context;
 using alura_backend_challenge_3.Repositories;
 using AutoMapper;
