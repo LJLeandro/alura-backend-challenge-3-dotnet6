@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "707e3fb7-53c2-4341-b23b-06b055df8da2",
+		"name": "Alura - Challenge 3 - .NET 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criando novo Registro de Video",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Brasil 3 x 0 Alemanha - Copa 2022\",\r\n    \"descricao\": \"Brasil ganhando da Alemanha\",\r\n    \"url\": \"www.rb.br/24344edfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5000/api/v1/videos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscando todos os Videos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Brasil 3 x 0 Alemanha - Copa 2022\",\r\n    \"descricao\": \"Brasil ganhando da Alemanha\",\r\n    \"url\": \"www.rb.br/24344edfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5000/api/v1/videos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"videos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscando Video por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Brasil 3 x 0 Alemanha - Copa 2022\",\r\n    \"descricao\": \"Brasil ganhando da Alemanha\",\r\n    \"url\": \"www.rb.br/24344edfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5000/api/v1/videos/08dab5cb-850c-4253-87b7-5457dff59e18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"videos",
+						"08dab5cb-850c-4253-87b7-5457dff59e18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizando Video por ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"08dab5f8-66e2-40ba-89e4-a90e11c97ba7\",\r\n    \"titulo\": \"Brasil 3 x 2 Alemanha - Copa 2022\",\r\n    \"descricao\": \"Brasil ganhando da Alemanha\",\r\n    \"url\": \"www.rb.br/24344edfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5000/api/v1/videos/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"videos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Removendo Video por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"08dab5f8-66e2-40ba-89e4-a90e11c97ba7\",\r\n    \"titulo\": \"Brasil 3 x 2 Alemanha - Copa 2022\",\r\n    \"descricao\": \"Brasil ganhando da Alemanha\",\r\n    \"url\": \"www.rb.br/24344edfs\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5000/api/v1/videos/08dab5cb-850c-4253-87b7-5457dff59e18",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"videos",
+						"08dab5cb-850c-4253-87b7-5457dff59e18"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
