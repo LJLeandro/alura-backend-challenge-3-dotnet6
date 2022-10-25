@@ -1,5 +1,4 @@
 using alura_backend_challenge_3.Config;
-using alura_backend_challenge_3.Data.ValueObjects;
 using alura_backend_challenge_3.Models.Context;
 using alura_backend_challenge_3.Repositories;
 using AutoMapper;
@@ -26,7 +25,7 @@ IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IDataRepository<VideoVO>, VideoRepository>();
+builder.Services.AddScoped<IVideoRepository, VideoRepository>();
 
 var app = builder.Build();
 
