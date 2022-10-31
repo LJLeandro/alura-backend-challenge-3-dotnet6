@@ -19,5 +19,10 @@ namespace alura_backend_challenge_3.Models.Base
         [Column("url")]
         [StringLength(100)]
         public string URL { get; set; }
+
+        [Column("categoria_id")]
+        [Required]
+        public CategoriaEntity Categoria { get; set; }
+
     }
 }

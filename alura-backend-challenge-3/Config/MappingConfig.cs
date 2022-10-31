@@ -12,6 +12,9 @@ namespace alura_backend_challenge_3.Config
             {
                 config.CreateMap<VideoVO, VideoEntity>();
                 config.CreateMap<VideoEntity, VideoVO>();
+
+                config.CreateMap<CategoriaVO, CategoriaEntity>();
+                config.CreateMap<CategoriaEntity, CategoriaVO>();
             });
 
             return mappingConfig;

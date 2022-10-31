@@ -12,5 +12,7 @@ namespace alura_backend_challenge_3.Data.ValueObjects
         public string Descricao { get; set; }
 
         public string URL { get; set; }
+
+        public CategoriaVO CategoriaVO { get; set; }
     }
 }
