@@ -34,7 +34,7 @@ namespace alura_backend_challenge_3.Repositories
             return _mapper.Map<List<VideoVO>>(videos);
         }
 
-        public async Task<VideoVO> FindById(Guid id)
+        public async Task<VideoVO> FindById(int id)
         {
             VideoEntity videoEntity = await _context.Videos.Where(x => x.Id == id).FirstOrDefaultAsync();
 
@@ -60,7 +60,7 @@ namespace alura_backend_challenge_3.Repositories
             }
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             try
             {

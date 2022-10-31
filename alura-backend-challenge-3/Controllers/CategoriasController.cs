@@ -23,5 +23,40 @@ namespace alura_backend_challenge_3.Controllers
 
             return categoriaCriada;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> FindAll()
+        {
+            var categorias = await _repository.FindAll();
+
+            return new ObjectResult(categorias) { StatusCode = StatusCodes.Status200OK };
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> FindById(int id)
+        {
+            var video = await _repository.FindById(id);
+            if (video == null) return NotFound();
+
+            return new ObjectResult(video) { StatusCode = StatusCodes.Status200OK };
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(CategoriaVO categoriaVO)
+        {
+            if (categoriaVO == null) return BadRequest();
+
+            var categoriaAtualizada = await _repository.Update(categoriaVO);
+
+            return new ObjectResult(categoriaAtualizada) { StatusCode = StatusCodes.Status200OK };
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var status = await _repository.Delete(id);
+            if (!status) return BadRequest();
+            return new ObjectResult(new { status }) { StatusCode = StatusCodes.Status200OK };
+        }
     }
 }

@@ -2,6 +2,7 @@
 using alura_backend_challenge_3.Models.Base;
 using alura_backend_challenge_3.Models.Context;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace alura_backend_challenge_3.Repositories
 {
@@ -28,10 +29,12 @@ namespace alura_backend_challenge_3.Repositories
 
         public async Task<IEnumerable<CategoriaVO>> FindAll()
         {
-            throw new NotImplementedException();
+            List<CategoriaEntity> categorias = await _context.Categorias.ToListAsync();
+
+            return _mapper.Map<List<CategoriaVO>>(categorias);
         }
 
-        public async Task<CategoriaVO> FindById(Guid id)
+        public async Task<CategoriaVO> FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +49,7 @@ namespace alura_backend_challenge_3.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> Delete(int id)
         {
             throw new NotImplementedException();
         }

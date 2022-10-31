@@ -36,7 +36,7 @@ namespace alura_backend_challenge_3.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> FindById(Guid id)
+        public async Task<IActionResult> FindById(int id)
         {
             var video = await _repository.FindById(id);
             if (video == null) return NotFound();
@@ -55,7 +55,7 @@ namespace alura_backend_challenge_3.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             var status = await _repository.Delete(id);
             if (!status) return BadRequest();

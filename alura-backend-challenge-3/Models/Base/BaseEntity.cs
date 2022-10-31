@@ -7,6 +7,7 @@ namespace alura_backend_challenge_3.Models.Base
     {
         [Key]
         [Column("id")]
-        public Guid Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
     }
 }

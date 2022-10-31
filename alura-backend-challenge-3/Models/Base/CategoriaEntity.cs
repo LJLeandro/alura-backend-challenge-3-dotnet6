@@ -5,13 +5,8 @@ using System.Text.Json.Serialization;
 namespace alura_backend_challenge_3.Models.Base
 {
     [Table("categorias")]
-    public class CategoriaEntity
+    public class CategoriaEntity : BaseEntity
     {
-        [Key]
-        [Column("id")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Titulo { get; set; }
