@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace alura_backend_challenge_3.Data.ValueObjects
 {
@@ -13,6 +14,9 @@ namespace alura_backend_challenge_3.Data.ValueObjects
 
         public string URL { get; set; }
 
-        public CategoriaVO CategoriaVO { get; set; }
+        public int CategoriaId { get; set; }
+
+        [JsonIgnore]
+        public CategoriaVO? CategoriaVO { get; set; }
     }
 }

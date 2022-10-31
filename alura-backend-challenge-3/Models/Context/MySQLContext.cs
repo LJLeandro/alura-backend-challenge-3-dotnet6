@@ -12,6 +12,13 @@ namespace alura_backend_challenge_3.Models.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CategoriaEntity>()
+                            .HasMany(t => t.Videos)
+                            .WithOne(t => t.Categoria)
+                            .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<CategoriaEntity>().HasData(new CategoriaEntity()
             {
                 Id = 1,

@@ -22,6 +22,8 @@ namespace alura_backend_challenge_3.Models.Base
 
         [Column("categoria_id")]
         [Required]
+        public int CategoriaId { get; set; }
+
         public CategoriaEntity Categoria { get; set; }
 
     }

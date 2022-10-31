@@ -4,6 +4,5 @@ namespace alura_backend_challenge_3.Repositories
 {
     public interface IVideoRepository : IDataRepository<VideoVO>
     {
-        Task<IEnumerable<VideoVO>> FindTheMostViewedVideos();
     }
 }

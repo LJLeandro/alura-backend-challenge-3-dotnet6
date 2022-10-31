@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace alura_backend_challenge_3.Models.Base
 {
@@ -19,6 +20,7 @@ namespace alura_backend_challenge_3.Models.Base
         [StringLength(50)]
         public string Cor { get; set; }
 
+        [JsonIgnore]
         public ICollection<VideoEntity> Videos { get; set; }
     }
 }

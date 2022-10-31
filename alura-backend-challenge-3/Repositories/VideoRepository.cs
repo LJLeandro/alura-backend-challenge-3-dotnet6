@@ -83,9 +83,5 @@ namespace alura_backend_challenge_3.Repositories
             }
         }
 
-        public async Task<IEnumerable<VideoVO>> FindTheMostViewedVideos()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

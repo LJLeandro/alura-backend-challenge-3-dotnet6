@@ -12,6 +12,6 @@ namespace alura_backend_challenge_3.Data.ValueObjects
 
         public string Cor { get; set; }
 
-        public ICollection<VideoVO> Videos { get; set; }
+        public ICollection<VideoVO>? Videos { get; set; }
     }
 }
