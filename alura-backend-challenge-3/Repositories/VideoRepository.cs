@@ -83,5 +83,11 @@ namespace alura_backend_challenge_3.Repositories
             }
         }
 
+        public async Task<IEnumerable<VideoVO>> FindAllVideosByCategoryId(int id)
+        {
+            List<VideoEntity> videos = await _context.Videos.Where(x => x.CategoriaId == id).ToListAsync();
+
+            return _mapper.Map<List<VideoVO>>(videos);
+        }
     }
 }

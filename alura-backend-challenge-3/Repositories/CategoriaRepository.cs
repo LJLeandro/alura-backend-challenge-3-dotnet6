@@ -36,22 +36,51 @@ namespace alura_backend_challenge_3.Repositories
 
         public async Task<CategoriaVO> FindById(int id)
         {
-            throw new NotImplementedException();
+            CategoriaEntity categoriaEntity = await _context.Categorias.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            return _mapper.Map<CategoriaVO>(categoriaEntity);
         }
 
-        public async Task<IEnumerable<CategoriaVO>> GetAllVideosByCategoryId(int id)
+        public async Task<CategoriaVO> Update(CategoriaVO categoriaVO)
         {
-            throw new NotImplementedException();
-        }
+            CategoriaEntity categoriaEntity = await _context.Categorias.Where(x => x.Id == categoriaVO.Id).FirstOrDefaultAsync();
 
-        public async Task<CategoriaVO> Update(CategoriaVO valueObject)
-        {
-            throw new NotImplementedException();
+            if (categoriaEntity == null)
+            {
+                var videoCreated = await Create(categoriaVO);
+
+                return videoCreated;
+            }
+            else
+            {
+                _context.Entry(categoriaEntity).CurrentValues.SetValues(_mapper.Map<VideoEntity>(categoriaVO));
+                await _context.SaveChangesAsync();
+
+                return categoriaVO;
+            }
         }
 
         public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                CategoriaEntity categoriaEntity = await _context
+                    .Categorias
+                    .Where(x => x.Id == id)
+                    .FirstOrDefaultAsync();
+
+                if (categoriaEntity == null)
+                    return false;
+
+                _context.Categorias.Remove(categoriaEntity);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
