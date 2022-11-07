@@ -44,6 +44,16 @@ namespace alura_backend_challenge_3.Controllers
             return new ObjectResult(video) { StatusCode = StatusCodes.Status200OK };
         }
 
+        [HttpGet("search")]
+        public async Task<IActionResult> FindByName([FromQuery] string name)
+        {
+            var videos = await _repository.FindVideosByName(name);
+            if (videos == null) return NotFound();
+
+            return new ObjectResult(videos) { StatusCode = StatusCodes.Status200OK };
+        }
+
+
         [HttpPut]
         public async Task<IActionResult> Update(VideoVO videoVO)
         {

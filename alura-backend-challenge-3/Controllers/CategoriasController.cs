@@ -47,7 +47,7 @@ namespace alura_backend_challenge_3.Controllers
         [HttpGet("{id}/videos")]
         public async Task<IActionResult> FindVideosByCategoria(int id)
         {
-            var videos = await _videoRepository.FindAllVideosByCategoryId(id);
+            var videos = await _videoRepository.FindVideosByCategoryId(id);
 
             return new ObjectResult(new { videos }) { StatusCode = StatusCodes.Status200OK };
         }

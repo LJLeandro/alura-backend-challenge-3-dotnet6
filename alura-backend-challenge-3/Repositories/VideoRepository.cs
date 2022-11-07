@@ -19,6 +19,9 @@ namespace alura_backend_challenge_3.Repositories
 
         public async Task<VideoVO> Create(VideoVO videoVO)
         {
+            if (videoVO.CategoriaId == 0 || videoVO.CategoriaId == null)
+                videoVO.CategoriaId = 1;
+
             VideoEntity videoEntity = _mapper.Map<VideoEntity>(videoVO);
             _context.Videos.Add(videoEntity);
 
@@ -83,9 +86,16 @@ namespace alura_backend_challenge_3.Repositories
             }
         }
 
-        public async Task<IEnumerable<VideoVO>> FindAllVideosByCategoryId(int id)
+        public async Task<IEnumerable<VideoVO>> FindVideosByCategoryId(int id)
         {
             List<VideoEntity> videos = await _context.Videos.Where(x => x.CategoriaId == id).ToListAsync();
+
+            return _mapper.Map<List<VideoVO>>(videos);
+        }
+
+        public async Task<IEnumerable<VideoVO>> FindVideosByName(string name)
+        {
+            List<VideoEntity> videos = await _context.Videos.Where(x => x.Titulo.Contains(name)).ToListAsync();
 
             return _mapper.Map<List<VideoVO>>(videos);
         }
